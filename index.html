@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f4f0e7" />
+    <meta name="theme-color" content="#132019" />
     <meta
       name="description"
-      content="A research note on building a speech-to-speech system for Singapore Hokkien, with qualitative audio samples, architecture, data, findings, and limitations."
+      content="Myna-Hokkien is an open-source end-to-end conversational speech model for Singapore Hokkien."
     />
-    <meta property="og:title" content="OmniHokkien — Building a speech-to-speech system for Singapore Hokkien" />
+    <meta property="og:title" content="Myna-Hokkien — Singapore Hokkien, in and out" />
     <meta
       property="og:description"
-      content="An ongoing research project from SUTD iNLP Lab, documented with audio samples, methods, findings, and limitations."
+      content="A listening-first research note on a native end-to-end Singapore-Hokkien conversational model."
     />
-    <title>OmniHokkien — Building a speech-to-speech system for Singapore Hokkien</title>
+    <title>Myna-Hokkien — Singapore Hokkien, in and out</title>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,47 +28,59 @@
     <div class="page-progress" aria-hidden="true"><span></span></div>
 
     <header class="site-header" data-header>
-      <a class="wordmark" href="#top" aria-label="OmniHokkien research note">
+      <a class="wordmark" href="#top" aria-label="Myna-Hokkien home">
         <span class="wordmark-mark" aria-hidden="true">聽</span>
-        <span>OmniHokkien</span>
+        <span>Myna-Hokkien</span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
         <span></span><span></span>
         <span class="sr-only">Toggle menu</span>
       </button>
       <nav id="site-nav" class="site-nav" aria-label="Article navigation">
-        <a href="#samples">Samples</a>
-        <a href="#system">System</a>
-        <a href="#data">Data</a>
-        <a href="#findings">Findings</a>
+        <a href="#showcase">Listen</a>
+        <a href="#uses">Use cases</a>
         <a href="#limitations">Limitations</a>
-        <a class="nav-compare" href="./compare.html">Compare audio <span aria-hidden="true">↗</span></a>
+        <a href="#next">Next</a>
+        <a class="nav-compare" href="https://huggingface.co/iNLP-Lab/MynaHokkien" target="_blank" rel="noreferrer">Get the model <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
 
     <main id="top">
       <article>
         <header class="article-hero">
-          <div class="article-shell">
-            <p class="article-meta">SUTD iNLP Lab · Research note · July 2026</p>
-            <h1>Building a speech-to-speech system for Singapore Hokkien</h1>
-            <p class="article-deck">
-              OmniHokkien is an ongoing effort to adapt existing omni-modal language
-              models to understand spoken Singapore Hokkien, generate a relevant
-              response, and speak that response aloud.
-            </p>
-
-            <div class="status-line" aria-label="Project status">
-              <span><strong>Status</strong> Work in progress</span>
-              <span><strong>Evaluation</strong> Mainly qualitative</span>
-              <span><strong>Current system</strong> Thinker → Bridge → Talker</span>
+          <div class="article-shell hero-grid">
+            <div class="hero-copy entrance">
+              <p class="article-meta">SUTD iNLP Lab · Open research release · August 2026</p>
+              <h1>Myna-<em>Hokkien.</em></h1>
+              <p class="article-deck">
+                Myna-Hokkien is an open-source end-to-end conversational speech model for
+                Singapore Hokkien. Users speak to the model in Hokkien and the model replies
+                in natural-sounding Hokkien speech—no text round-trip required, though text
+                input and output are also supported.
+              </p>
+              <div class="artifact-links">
+                <a class="primary-link" href="#showcase">Hear all 10 comparisons <span aria-hidden="true">↓</span></a>
+                <a href="https://huggingface.co/iNLP-Lab/MynaHokkien" target="_blank" rel="noreferrer">Model on Hugging Face <span aria-hidden="true">↗</span></a>
+              </div>
             </div>
 
-            <div class="artifact-links" aria-label="Project links">
-              <a href="#samples">Listen to samples <span aria-hidden="true">↓</span></a>
-              <a href="./compare.html">Five-model comparison <span aria-hidden="true">↗</span></a>
-              <a href="https://github.com/mattChrisP/omni_hokkien_page" target="_blank" rel="noreferrer">Page source <span aria-hidden="true">↗</span></a>
+            <div class="hero-signal entrance" aria-hidden="true">
+              <div class="signal-end">
+                <span class="signal-label">Audio in</span>
+                <div class="signal-wave signal-wave-in"></div>
+              </div>
+              <span class="signal-core">福建話</span>
+              <div class="signal-end signal-end-out">
+                <div class="signal-wave signal-wave-out"></div>
+                <span class="signal-label signal-label-out">Audio out</span>
+              </div>
             </div>
+          </div>
+          <div class="article-shell status-line entrance" aria-label="Project status">
+            <span><strong>Model</strong> Native Qwen3-Omni</span>
+            <span><strong>Primary task</strong> Spoken question answering</span>
+            <span><strong>Language</strong> Singapore Hokkien</span>
+            <span><strong>Status</strong> Research release</span>
           </div>
         </header>
 
@@ -76,288 +88,180 @@
           <div class="article-shell article-grid">
             <p class="margin-label">In brief</p>
             <div class="article-copy">
-              <h2 id="summary-title">What we are working on</h2>
+              <h2 id="summary-title">A native voice model for an underserved language.</h2>
               <p class="lead">
-                The current pipeline combines three separately adapted components:
-                a Qwen2.5-Omni Thinker for understanding and response generation, a
-                Transformer Bridge for mapping between model families, and a
-                Qwen3-Omni Talker for speech generation.
+                Hokkien is the native language of tens of millions of speakers across Asia,
+                yet it remains almost entirely absent from mainstream speech AI: no existing
+                omni-style model—open or closed—natively supports Hokkien.
               </p>
               <p>
-                The central technical problem is not simply translating one hidden
-                vector space into another. Qwen2.5 and Qwen3 can represent the same
-                answer with different token sequences and boundaries. We therefore
-                treat the connection as a sequence-mapping problem rather than a
-                position-wise projection.
+                Myna-Hokkien is an attempt to close that gap, and to leave behind a reusable
+                recipe for other low-resource language communities to do the same.
               </p>
-
-              <dl class="fact-grid">
-                <div>
-                  <dt>Input</dt>
-                  <dd>Spoken Hokkien, or English, Chinese, and Hokkien text</dd>
-                </div>
-                <div>
-                  <dt>Output</dt>
-                  <dd>Singapore-Hokkien Hanji and generated speech</dd>
-                </div>
-                <div>
-                  <dt>Research focus</dt>
-                  <dd>Cross-model alignment for low-resource speech-to-speech generation</dd>
-                </div>
-                <div>
-                  <dt>Evidence so far</dt>
-                  <dd>Internal experiments and qualitative listening comparisons</dd>
-                </div>
-              </dl>
+              <p class="lab-credit">Proudly built by <a href="https://inlp-lab.github.io/" target="_blank" rel="noreferrer">iNLP Lab <span aria-hidden="true">↗</span></a></p>
+              <div class="single-path" aria-label="One native model maps Hokkien audio directly to a spoken Hokkien answer">
+                <span>Hokkien audio</span><i aria-hidden="true">→</i><strong>Qwen3-Omni</strong><i aria-hidden="true">→</i><span>Hokkien answer</span>
+              </div>
             </div>
           </div>
         </section>
 
-        <section id="samples" class="article-section samples-section" aria-labelledby="samples-title">
+        <section id="showcase" class="article-section showcase-section" aria-labelledby="showcase-title">
           <div class="wide-shell">
             <div class="section-heading article-grid">
-              <p class="margin-label">01 · Samples</p>
+              <p class="margin-label">01 · Listen</p>
               <div class="article-copy">
-                <h2 id="samples-title">Qualitative examples</h2>
+                <h2 id="showcase-title">Same question. Five voice models.</h2>
                 <p>
-                  These selected clips illustrate the current system across spoken
-                  and text inputs. They are useful for inspection, but they are not a
-                  benchmark or a random sample of model behaviour.
+                  Hear Myna-Hokkien beside GPT Audio, Qwen3.5-Omni-Plus, Gemini, and
+                  GLM-Voice on ten practical prompts. The point is simple: listen to what
+                  each system makes possible in Hokkien.
                 </p>
               </div>
             </div>
 
-            <div class="demo-filters" role="tablist" aria-label="Filter audio samples">
-              <button class="filter-button is-active" type="button" role="tab" aria-selected="true" data-filter="all">All</button>
-              <button class="filter-button" type="button" role="tab" aria-selected="false" data-filter="speech">Spoken input</button>
-              <button class="filter-button" type="button" role="tab" aria-selected="false" data-filter="english">English text</button>
-              <button class="filter-button" type="button" role="tab" aria-selected="false" data-filter="chinese">Chinese text</button>
+            <div class="listen-key" aria-label="Comparison legend">
+              <span><i class="key-native"></i> Myna-Hokkien · this open-source release</span>
+              <span><i class="key-external"></i> External comparison models</span>
             </div>
 
-            <div class="demo-stage">
-              <div class="demo-list-wrap">
-                <ol class="demo-list" data-demo-list aria-label="Demo samples"></ol>
+            <p class="comparison-verdict">
+              <strong>No score can replace the conversation.</strong> Start with the original
+              prompt, then hear whether each model understands it, answers usefully, and stays
+              in Hokkien.
+            </p>
+
+            <div class="showcase-workspace">
+              <div class="showcase-rail">
+                <div class="rail-heading"><span>Use case</span><span>10 examples</span></div>
+                <ol class="showcase-list" data-showcase-list aria-label="Choose a use case"></ol>
               </div>
 
-              <article class="demo-detail" data-demo-detail aria-live="polite">
-                <div class="demo-detail-topline">
-                  <span class="demo-kind"></span>
-                  <span class="demo-count"></span>
+              <article class="showcase-detail" data-showcase-detail aria-live="polite">
+                <div class="showcase-topline">
+                  <span class="showcase-kind"></span>
+                  <span class="showcase-count"></span>
                 </div>
-                <div class="demo-text-input">
-                  <p class="demo-prompt-label">Input</p>
-                  <h3 class="demo-prompt"></h3>
+                <div class="showcase-prompt">
+                  <p class="eyebrow">What the person asks</p>
+                  <h3></h3>
+                  <p class="prompt-note"></p>
+                  <div class="source-audio" data-source-audio></div>
                 </div>
-                <div class="demo-audio-input" hidden>
-                  <p class="demo-prompt-label">Original input audio</p>
-                  <div class="input-player">
-                    <button class="input-play" type="button" aria-label="Play Hokkien input audio"><span aria-hidden="true">▶</span></button>
-                    <div class="input-timeline">
-                      <div class="input-waveform" data-input-waveform aria-hidden="true"></div>
-                      <div class="input-track" aria-hidden="true"><span></span></div>
-                    </div>
-                    <time class="input-time">00:00 / 00:00</time>
-                    <audio data-input-audio preload="metadata"></audio>
-                  </div>
-                </div>
-                <div class="demo-response">
-                  <p class="demo-prompt-label">Generated response</p>
-                  <p class="demo-hanji" lang="nan-Hant"></p>
-                  <p class="demo-gloss"></p>
-                </div>
-                <div class="demo-player">
-                  <button class="demo-play" type="button" aria-label="Play generated response"><span aria-hidden="true">▶</span></button>
-                  <div class="demo-timeline">
-                    <div class="demo-waveform" data-waveform aria-hidden="true"></div>
-                    <div class="demo-track" aria-hidden="true"><span></span></div>
-                  </div>
-                  <time class="demo-time">00:00 / 00:00</time>
-                  <audio data-reply-audio preload="metadata"></audio>
-                </div>
+                <div class="response-pair" data-response-pair></div>
+                <p class="listening-note">Listen for relevance, intelligibility, pace, and how directly each system answers—not just voice quality.</p>
               </article>
             </div>
 
-            <aside class="comparison-callout">
-              <div>
-                <strong>Side-by-side listening</strong>
-                <p>Compare the same ten inputs across OmniHokkien, GPT Audio, Qwen3.5-Omni-Plus, Gemini, and GLM-Voice.</p>
-              </div>
-              <a href="./compare.html">Open comparison gallery <span aria-hidden="true">→</span></a>
-            </aside>
+            <p class="showcase-method">
+              <strong>Reading the comparison.</strong> All five models receive the same source prompt.
+              The clips are presented for qualitative listening across the same ten use cases.
+              No numerical ranking or broad performance claim is implied by these selected examples.
+            </p>
           </div>
         </section>
 
-        <section id="system" class="article-section" aria-labelledby="system-title">
+        <section id="uses" class="article-section uses-section" aria-labelledby="uses-title">
           <div class="article-shell article-grid">
-            <p class="margin-label">02 · System</p>
+            <p class="margin-label">02 · Possibilities</p>
             <div class="article-copy">
-              <h2 id="system-title">Current architecture</h2>
-              <p>
-                The system is assembled from components adapted for different parts
-                of the task. It should be understood as a research pipeline rather
-                than a single model trained end to end from scratch.
+              <h2 id="uses-title">What this approach could make possible</h2>
+              <p class="lead">
+                An end-to-end Hokkien model opens three directions: richer speech interaction,
+                useful Hokkien voice applications, and a foundation others can adapt.
               </p>
-
-              <figure class="system-figure">
-                <div class="system-flow" aria-label="Spoken Hokkien passes through a Qwen2.5 Thinker, Transformer Bridge, Qwen3 Talker, and frozen codec">
-                  <div class="flow-input">
-                    <span>Input</span>
-                    <strong>Spoken Hokkien</strong>
-                  </div>
-                  <span class="flow-arrow" aria-hidden="true">→</span>
-                  <div>
-                    <span>Understand + answer</span>
-                    <strong>Qwen2.5 Thinker</strong>
-                  </div>
-                  <span class="flow-arrow" aria-hidden="true">→</span>
-                  <div class="flow-accent">
-                    <span>Map sequences</span>
-                    <strong>Transformer Bridge</strong>
-                  </div>
-                  <span class="flow-arrow" aria-hidden="true">→</span>
-                  <div>
-                    <span>Generate codec tokens</span>
-                    <strong>Qwen3 Talker</strong>
-                  </div>
-                  <span class="flow-arrow" aria-hidden="true">→</span>
-                  <div>
-                    <span>Decode</span>
-                    <strong>Frozen Mimi codec</strong>
-                  </div>
-                </div>
-                <figcaption>Current best internal configuration as of July 2026.</figcaption>
-              </figure>
-
-              <h3>Why the bridge matters</h3>
-              <p>
-                Linear and residual-MLP bridges transform representations one
-                position at a time. In our experiments, that formulation did not
-                adequately handle differences in token boundaries and sequence
-                lengths. The selected autoregressive Transformer Bridge instead
-                predicts the equivalent Qwen3 token sequence from Qwen2.5 answer
-                embeddings.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="data" class="article-section data-section" aria-labelledby="data-title">
-          <div class="article-shell article-grid">
-            <p class="margin-label">03 · Data</p>
-            <div class="article-copy">
-              <h2 id="data-title">Different data for different roles</h2>
-              <p>
-                Natural drama speech supplies linguistic breadth and expression;
-                clean synthetic speech gives tighter audio–text alignment; and
-                conversational data more closely matches the intended interaction.
-                The quantities below describe the current training recipe, not a
-                single pooled corpus.
-              </p>
-            </div>
-          </div>
-
-          <div class="table-shell" role="region" aria-label="Training data summary" tabindex="0">
-            <table>
-              <thead>
-                <tr>
-                  <th>Source</th>
-                  <th>Approximate size</th>
-                  <th>Primary role</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Common Voice <code>nan-tw</code> + CuriousFox NRP</td>
-                  <td>40.9 hours</td>
-                  <td>Taiwan-Hokkien pronunciation foundation for the Talker</td>
-                </tr>
-                <tr>
-                  <td>Taiwan and Singapore Hokkien dramas</td>
-                  <td>About 129.4 hours</td>
-                  <td>Natural speech grounding for ASR and broader text coverage</td>
-                </tr>
-                <tr>
-                  <td>Clean MERaLiON synthetic speech</td>
-                  <td>20.9 hours</td>
-                  <td>Verbatim audio–Hanji supervision</td>
-                </tr>
-                <tr>
-                  <td>MERaLiON adjacent-turn conversations</td>
-                  <td>12,987 training pairs</td>
-                  <td>Question–answer adaptation and bridge training</td>
-                </tr>
-                <tr>
-                  <td>HumanChatBot</td>
-                  <td>11,662 pairs; about 50 hours</td>
-                  <td>Final conversational and speech-output specialization</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section id="findings" class="article-section" aria-labelledby="findings-title">
-          <div class="article-shell article-grid">
-            <p class="margin-label">04 · Findings</p>
-            <div class="article-copy">
-              <h2 id="findings-title">What the experiments suggest so far</h2>
-              <ol class="finding-list">
+              <aside class="possibility-note" aria-label="Current release note">
+                <span>Current release note</span>
+                <p>Myna-Hokkien is an early spoken question-answering model. Its Hokkien remains imperfect, its task coverage is narrow, and its speech does not yet carry much emotional variation.</p>
+              </aside>
+              <ol class="use-list">
                 <li>
-                  <strong>Verbatim supervision matters.</strong>
-                  Clean audio–Hanji pairs help both speech generation and acoustic-language grounding.
+                  <span>01</span>
+                  <div>
+                    <strong>Affect-aware, emotionally expressive conversation</strong>
+                    <p>
+                      An end-to-end speech model can learn more than the words being said. In
+                      principle, it can use <em>paralinguistic cues</em>—prosody, pace, loudness,
+                      timbre, and emotion—to understand how someone speaks and answer with a
+                      context-appropriate tone. Myna-Hokkien does not yet do this reliably; the
+                      architecture makes it possible, while expressive data determines whether it
+                      can actually be learned.
+                    </p>
+                  </div>
                 </li>
                 <li>
-                  <strong>The cross-model mismatch is sequential.</strong>
-                  A Transformer Bridge has been more reliable than the tested linear and residual-MLP alternatives.
+                  <span>02</span>
+                  <div>
+                    <strong>General Hokkien voice applications</strong>
+                    <p>Use the same conversational layer wherever speaking is easier or more natural than typing.</p>
+                    <ul class="application-examples">
+                      <li><b>Family and elder-facing assistants</b> for everyday help, explanations, reminders, and conversation.</li>
+                      <li><b>Community and public-service access</b> through kiosks, helplines, and service navigation after domain-specific safety work.</li>
+                      <li><b>Language learning and oral heritage</b> for pronunciation, sayings, and spoken practice without forcing every exchange through writing.</li>
+                      <li><b>Local, hands-free help</b> for drafting messages, brainstorming, and practical questions while working or moving.</li>
+                    </ul>
+                  </div>
                 </li>
                 <li>
-                  <strong>Shallow text representations can support a working Talker.</strong>
-                  The current speech path conditions on Qwen3 <code>hidden_states[0]</code>; deeper conditioning remains untested.
-                </li>
-                <li>
-                  <strong>Codec alignment changes perceived speech pace.</strong>
-                  A one-frame target shift caused rushed output; correcting the alignment removed the systematic rushing we observed.
+                  <span>03</span>
+                  <div>
+                    <strong>A reusable foundation for adaptation</strong>
+                    <p>
+                      Developers can start from Myna-Hokkien instead of rebuilding Hokkien speech
+                      capability from zero: adapt it for a particular task, improve its Hokkien
+                      language or accent coverage, or add new speaking behaviours. The same training
+                      recipe can also help other low-resource language communities build their own
+                      native speech models.
+                    </p>
+                  </div>
                 </li>
               </ol>
-              <p class="evidence-note">
-                These are findings from the current internal experiments. Formal
-                ablations and a fixed end-to-end evaluation set are still needed.
-              </p>
             </div>
           </div>
         </section>
 
         <section id="limitations" class="article-section limitations-section" aria-labelledby="limitations-title">
           <div class="article-shell article-grid">
-            <p class="margin-label">05 · Limitations</p>
+            <p class="margin-label">03 · Limitations</p>
             <div class="article-copy">
-              <h2 id="limitations-title">What this page does not yet establish</h2>
+              <h2 id="limitations-title">It can answer. It cannot yet feel every answer.</h2>
               <p class="lead">
-                The samples show that the current pipeline can produce intelligible
-                and relevant outputs in selected cases. They do not establish broad
-                or state-of-the-art performance.
+                The model’s words may be sympathetic, excited, or playful, but its voice still has
+                limited emotional range. We do not yet have enough varied, expressive Hokkien speech
+                data to teach that range reliably.
               </p>
               <ul class="limitation-list">
-                <li>Evaluation is still largely based on listening and informal comparison.</li>
-                <li>We do not yet have a fixed public benchmark covering intelligibility, response quality, naturalness, pace, and speaker similarity.</li>
-                <li>Errors can propagate across the Thinker, bridge, Talker, and codec, and are not yet fully isolated.</li>
-                <li>Expressive variation is limited, with no explicit speaking-style control.</li>
-                <li>Drama speech is useful but can include noise and imperfect transcript alignment.</li>
+                <li>The current task coverage is narrow: mainly spoken question answering, not a general Hokkien agent.</li>
+                <li>Emotion, speaking style, and fine-grained delivery cannot be controlled reliably.</li>
+                <li>The ten clips above are selected listening examples, not a fixed public benchmark.</li>
+                <li>Responses can still be inaccurate, awkward, repetitive, or inconsistent; high-stakes use requires human oversight.</li>
+                <li>Accent and vocabulary coverage lean toward the data we have, and will not represent every Hokkien-speaking community equally.</li>
               </ul>
+              <aside class="data-callout">
+                <span>Have expressive Hokkien speech data?</span>
+                <p>
+                  Emotion-rich conversation, varied speakers, and carefully aligned recordings would
+                  directly address one of the release’s largest gaps.
+                </p>
+                <a href="https://isakzhang.github.io/" target="_blank" rel="noreferrer">Contact the team to collaborate <span aria-hidden="true">↗</span></a>
+              </aside>
             </div>
           </div>
         </section>
 
         <section id="next" class="article-section next-section" aria-labelledby="next-title">
           <div class="article-shell article-grid">
-            <p class="margin-label">06 · Next</p>
+            <p class="margin-label">04 · Next</p>
             <div class="article-copy">
-              <h2 id="next-title">Next experiments</h2>
+              <h2 id="next-title">Smaller to run. Broader in what it can do.</h2>
+              <p class="lead">
+                The next releases will explore the same native speech-to-speech idea with smaller
+                weights, and extend beyond today’s spoken-QA focus.
+              </p>
               <ol class="next-list">
-                <li><span>01</span><div><strong>Freeze a reproducible baseline</strong><p>Save the current best component combination and evaluate it on a fixed set of real and synthetic questions.</p></div></li>
-                <li><span>02</span><div><strong>Test deeper conditioning</strong><p>Compare shallow text conditioning against shallow plus deep Qwen3 representations.</p></div></li>
-                <li><span>03</span><div><strong>Formalize ablations</strong><p>Measure the effects of Thinker checkpoints, bridge types, data mixtures, and codec alignment.</p></div></li>
-                <li><span>04</span><div><strong>Improve expression control</strong><p>Curate expressive data or add explicit labels for emotion, pace, and delivery style.</p></div></li>
+                <li><span>01</span><div><strong>Release lighter checkpoints</strong><p>Make experimentation and deployment possible on more modest hardware.</p></div></li>
+                <li><span>02</span><div><strong>Cover more tasks</strong><p>Move beyond answering questions toward summarisation, guided workflows, learning, and other useful spoken interactions.</p></div></li>
+                <li><span>03</span><div><strong>Evaluate with the community</strong><p>Measure usefulness, naturalness, and failure modes with Hokkien speakers across ages and backgrounds.</p></div></li>
               </ol>
             </div>
           </div>
@@ -365,19 +269,18 @@
 
         <section class="article-section context-section" aria-labelledby="context-title">
           <div class="article-shell article-grid">
-            <p class="margin-label">Context</p>
+            <p class="margin-label">Why now</p>
             <div class="article-copy">
-              <h2 id="context-title">Why Singapore Hokkien?</h2>
+              <h2 id="context-title">Keep a spoken language useful in spoken interfaces.</h2>
               <p>
-                Chinese dialect use at home in Singapore has declined across
-                generations, while Hokkien remains important in family life, cultural
-                memory, and communication with some older residents. This project
-                asks what current speech-model adaptation techniques can—and cannot
-                yet—contribute in a low-resource local language setting.
+                Singapore Hokkien carries family life, humour, memory, and everyday knowledge, yet it
+                remains largely absent from modern voice systems. Myna-Hokkien is one attempt to make
+                that gap audible—and to make the work reusable by other low-resource language communities.
               </p>
               <div class="source-links">
-                <a href="https://www.channelnewsasia.com/singapore/chinese-dialects-teochew-hokkien-cantonese-singapore-infocus-3144121" target="_blank" rel="noreferrer">Census context <span aria-hidden="true">↗</span></a>
-                <a href="https://knowledge.csc.gov.sg/ethos-issue-15/communicating-to-our-pioneer-generation/" target="_blank" rel="noreferrer">Dialect outreach <span aria-hidden="true">↗</span></a>
+                <a href="https://huggingface.co/iNLP-Lab/MynaHokkien" target="_blank" rel="noreferrer">Explore the model <span aria-hidden="true">↗</span></a>
+                <a href="https://inlp-lab.github.io/" target="_blank" rel="noreferrer">SUTD iNLP Lab <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/mattChrisP/omni_hokkien_page" target="_blank" rel="noreferrer">Page source <span aria-hidden="true">↗</span></a>
               </div>
             </div>
           </div>
@@ -388,12 +291,12 @@
     <footer class="site-footer">
       <div class="wide-shell footer-grid">
         <div>
-          <strong>OmniHokkien</strong>
-          <p>Ongoing Singapore-Hokkien speech research from SUTD iNLP Lab.</p>
+          <strong>Myna-Hokkien</strong>
+          <p>Native Singapore-Hokkien speech research from SUTD iNLP Lab.</p>
         </div>
         <div class="footer-links">
-          <a href="./compare.html">Audio comparison</a>
-          <a href="https://inlp-lab.github.io/" target="_blank" rel="noreferrer">iNLP Lab ↗</a>
+          <a href="#showcase">Listen again</a>
+          <a href="https://huggingface.co/iNLP-Lab/MynaHokkien" target="_blank" rel="noreferrer">Hugging Face ↗</a>
           <a href="#top">Back to top ↑</a>
         </div>
         <p class="footer-note">Research prototype. Outputs may be incomplete, inaccurate, or inconsistent.</p>

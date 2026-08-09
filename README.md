@@ -1,9 +1,9 @@
-# OmniHokkien project page
+# Myna-Hokkien project page
 
-An editorial research note for **OmniHokkien**, iNLP Lab's ongoing work on a
-conversational Singapore-Hokkien speech-to-speech system. The page documents
-the current method, selected audio samples, training data, early findings,
-limitations, and next experiments.
+A listening-first research note for **Myna-Hokkien**, iNLP Lab's native
+Qwen3-Omni conversational Singapore-Hokkien model. The main page compares the
+release with four external voice models across ten everyday use cases, then
+documents possible applications, limitations, and next releases.
 
 ## Preview locally
 
@@ -15,17 +15,14 @@ python3 -m http.server 8000
 
 Then open <http://localhost:8000>.
 
-## Editing demos
+## Editing the showcase
 
-Demo metadata lives in the `demos` array near the top of `script.js`. Audio
-files are stored in `assets/audio/`. Add or remove an object from that array to
-update the demo selector.
+Comparison metadata lives in the `showcaseSamples` array near the top of
+`script.js`. Audio files are stored in `assets/showcase/`, with one numbered
+directory per use case and one input plus the five model outputs.
 
-## Comparison gallery
-
-`compare.html` presents the same ten inputs across OmniHokkien, GPT Audio,
-Qwen3.5-Omni-Plus, Gemini, and GLM-Voice. It is explicitly framed as a
-qualitative listening gallery rather than a numerical benchmark.
+The standalone `compare.html` page remains available as an archive. The current
+five-model comparison is now on the main page.
 
 ## Deployment
 
