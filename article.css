@@ -73,8 +73,6 @@ h1 em { font-weight: 400; }
 .probe-cell audio { height: 30px; }
 .probe-cell p { margin: 8px 0 0; color: var(--muted); font-size: .72rem; line-height: 1.45; }
 .probe-note { margin: 0; padding: 10px 16px; color: var(--quiet); border-top: 1px solid var(--line); font-size: .73rem; }
-.project-close { margin: 26px 0 34px; }
-
 .legend { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 0 0 16px; color: var(--quiet); font-size: .77rem; }
 .legend span { display: inline-flex; gap: 7px; align-items: center; }
 .legend i { width: 16px; height: 12px; }

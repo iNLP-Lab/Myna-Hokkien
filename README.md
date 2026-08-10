@@ -3,7 +3,7 @@
 A compact, listening-first research note for **Myna-Hokkien**, iNLP Lab's
 Singapore-Hokkien speech model. The main page presents the release facts, one
 clearly scoped five-model listening example, ten selected Myna-Hokkien demos,
-run instructions, limitations, and citation details. The other model outputs
+run instructions, next steps, and citation details. The other model outputs
 for each selected demo remain inside collapsed comparison tables. The
 standalone comparison page remains available as an archive.
 
