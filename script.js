@@ -20,7 +20,7 @@ const showcaseSamples = [
     title: "Angry—play a song",
     category: "Mood-aware help",
     kind: "Spoken Hokkien input",
-    prompt: "“I’m very angry. Can you recommend a song?”",
+    prompt: "“I'm very angry. Can you recommend a song?”",
     note: "A practical recommendation inside an emotionally charged prompt.",
   },
   {
@@ -28,7 +28,7 @@ const showcaseSamples = [
     title: "Birthday pronunciation",
     category: "Language learning",
     kind: "Spoken Hokkien input",
-    prompt: "“How do I pronounce ‘happy birthday’?”",
+    prompt: "“How do I pronounce 'happy birthday'?”",
     note: "An example of spoken pronunciation help.",
   },
   {
@@ -60,7 +60,7 @@ const showcaseSamples = [
     title: "Feeling bothered",
     category: "Everyday advice",
     kind: "Spoken Hokkien input",
-    prompt: "“I’ve been very bothered lately. How can I feel less bothered?”",
+    prompt: "“I've been very bothered lately. How can I feel less bothered?”",
     note: "Supportive, open-ended everyday advice.",
   },
   {
@@ -82,7 +82,7 @@ const showcaseSamples = [
 ].map((sample) => ({
   ...sample,
   input: sample.id === "10" ? null : `./assets/showcase/${sample.id}/input.wav`,
-  native: `./assets/showcase/${sample.id}/native.wav`,
+  native: `./assets/showcase/${sample.id}/native.wav?v=release-myna-20260810`,
   gptaudio: `./assets/showcase/${sample.id}/gptaudio.wav`,
   qwen: `./assets/showcase/${sample.id}/qwen.wav`,
   gemini: `./assets/showcase/${sample.id}/gemini.wav`,
