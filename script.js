@@ -1,11 +1,11 @@
 const comparisonModels = [
   ["gptaudio", "GPT Audio"],
   ["qwen", "Qwen3.5-Omni-Plus"],
-  ["gemini", "Gemini"],
+  ["gemini", "Gemini Live"],
   ["glmvoice", "GLM-Voice"],
 ];
 
-document.querySelectorAll(".demo").forEach((demo, index) => {
+document.querySelectorAll(".demo[data-comparison]").forEach((demo, index) => {
   const sampleId = String(index + 1).padStart(2, "0");
   const output = demo.querySelector(".turn.output");
   if (!output) return;

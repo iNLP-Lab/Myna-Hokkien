@@ -78,8 +78,13 @@ h1 em { font-weight: 400; }
 .legend i { width: 16px; height: 12px; }
 .legend .solid { border: 1px solid var(--line); }
 .legend .dotted { width: 9px; border-left: 2px dotted #b8bdc2; }
+.demo-groups { display: grid; gap: 42px; }
+.demo-group-head { margin-bottom: 16px; padding-top: 14px; border-top: 2px solid var(--ink); }
+.demo-group-head h3 { max-width: 560px; margin-bottom: 5px; font-size: clamp(1.2rem, 2.1vw, 1.48rem); letter-spacing: -.01em; }
+.demo-group-head div p { max-width: 600px; margin: 0; color: var(--muted); font-size: .85rem; line-height: 1.5; }
 .demo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.demo { display: flex; overflow: hidden; flex-direction: column; border: 1px solid var(--line); border-radius: 3px; }
+.demo { display: flex; overflow: hidden; flex-direction: column; border: 1px solid var(--line); border-radius: 3px; transition: border-color .18s ease, transform .18s ease; }
+.demo:hover { border-color: #c7c2b6; transform: translateY(-1px); }
 .demo header { display: flex; gap: 12px; padding: 12px 14px; border-bottom: 1px solid var(--line); background: var(--panel); }
 .demo header > span { color: var(--accent-deep); font: .72rem var(--mono); }
 .demo header p { margin: 2px 0 0; color: var(--muted); font-size: .78rem; }
@@ -144,6 +149,7 @@ footer { padding: 28px 0 42px; border-top: 1px solid var(--line); }
   .probe-cell { border-top: 1px solid var(--line); border-left: 0; }
   .probe-cell:first-child { border-top: 0; }
   .probe-cell strong { min-height: 0; margin-bottom: 7px; }
+  .demo-groups { gap: 34px; }
   .demo-grid { grid-template-columns: 1fr; }
   .model-comparison th, .model-comparison td { display: block; width: 100%; }
   .model-comparison th { padding-bottom: 2px; }
@@ -153,4 +159,4 @@ footer { padding: 28px 0 42px; border-top: 1px solid var(--line); }
 }
 
 @media (max-width: 860px) and (min-width: 681px) { .probe-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .probe-cell { border-top: 1px solid var(--line); } }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .wave i { animation: none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .wave i { animation: none; } .demo { transition: none; } .demo:hover { transform: none; } }
