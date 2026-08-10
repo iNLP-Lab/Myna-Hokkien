@@ -21,7 +21,7 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./article.css?v=research-details-20260810b" />
+    <link rel="stylesheet" href="./article.css?v=showcase-groups-20260811" />
     <script src="./script.js?v=research-details-20260810b" defer></script>
   </head>
   <body>
@@ -110,6 +110,11 @@
                 </div>
               </header>
 
+              <header class="demo-subgroup-head">
+                <h4>Comfort</h4>
+                <p>Supportive responses to emotionally expressive speech.</p>
+              </header>
+
               <div class="demo-grid">
             <article class="demo" data-comparison>
               <header><span>01</span><div><h3>Feeling stuck</h3></div></header>
@@ -161,12 +166,18 @@
             <section class="demo-group" aria-labelledby="daily-group-title">
               <header class="demo-group-head">
                 <div>
-                  <h3 id="daily-group-title">Myna is also useful for daily tasks and conversations.</h3>
+                  <h3 id="daily-group-title">Myna is also great for daily tasks and conversations.</h3>
                   <p>Nine spoken and typed requests cover practical help, explanations, recommendations, and casual conversation.</p>
                 </div>
               </header>
 
-              <div class="demo-grid">
+              <section class="demo-use-case" aria-labelledby="general-help-title">
+                <header class="demo-subgroup-head">
+                  <h4 id="general-help-title">General help</h4>
+                  <p>Practical support for everyday questions, decisions, and recommendations.</p>
+                </header>
+
+                <div class="demo-grid">
 
             <article class="demo">
               <header><span>04</span><div><h3>Fry long beans with egg</h3></div></header>
@@ -214,22 +225,7 @@
             </article>
 
             <article class="demo">
-              <header><span>07</span><div><h3>A funny story</h3></div></header>
-              <div class="turn">
-                <p class="tag">Model input · Hokkien audio</p>
-                <audio controls preload="metadata" src="./assets/showcase/08/input.wav"></audio>
-                <aside><b>What is said, in English</b><p>“Tell me a funny story.”</p></aside>
-              </div>
-              <div class="turn output">
-                <p class="tag">Myna-Hokkien output · audio + transcript</p>
-                <audio controls preload="metadata" src="./assets/showcase/08/native.wav"></audio>
-                <div class="model-text"><b>Output transcript</b><p lang="nan">好啊，我讲一个关于阿公的予你听。有一日阿公去巴刹，买了一尾大鱼，结果转去厝内，鱼不见去矣！</p></div>
-                <aside><b>Rough English meaning</b><p>A grandfather buys a large fish at the market, but it is gone when he gets home.</p></aside>
-              </div>
-            </article>
-
-            <article class="demo">
-              <header><span>08</span><div><h3>Choose an exercise</h3></div></header>
+              <header><span>07</span><div><h3>Choose an exercise</h3></div></header>
               <div class="turn">
                 <p class="tag">Model input · Hokkien audio</p>
                 <audio controls preload="metadata" src="./assets/showcase/09/input.wav"></audio>
@@ -244,22 +240,7 @@
             </article>
 
             <article class="demo">
-              <header><span>09</span><div><h3>Tell me a joke</h3></div></header>
-              <div class="turn">
-                <p class="tag">Model input · Hokkien audio</p>
-                <audio controls preload="metadata" src="./assets/showcase/10/input.wav"></audio>
-                <aside><b>What is said, in English</b><p>“Today is very boring. Tell me a joke.”</p></aside>
-              </div>
-              <div class="turn output">
-                <p class="tag">Myna-Hokkien output · audio + transcript</p>
-                <audio controls preload="metadata" src="./assets/showcase/10/native.wav"></audio>
-                <div class="model-text"><b>Output transcript</b><p lang="nan">好啊，我讲一个。为什么猪头爱去洗身？因为伊想欲变聪明，结果洗到变“猪油”！</p></div>
-                <aside><b>Rough English meaning</b><p>Why does a pig like to bathe? It wants to become clever, but ends up becoming “lard” instead.</p></aside>
-              </div>
-            </article>
-
-            <article class="demo">
-              <header><span>10</span><div><h3>A cheaper haircut</h3></div></header>
+              <header><span>08</span><div><h3>A cheaper haircut</h3></div></header>
               <div class="turn">
                 <p class="tag">Model input · Hokkien audio</p>
                 <audio controls preload="metadata" src="./assets/showcase/11/input.wav"></audio>
@@ -270,6 +251,46 @@
                 <audio controls preload="metadata" src="./assets/showcase/11/native.wav"></audio>
                 <div class="model-text"><b>Output transcript</b><p lang="nan">好啊，无问题！你是欲去加冷（Kallang）还是去宏茂桥（Bishan）彼边？</p></div>
                 <aside><b>Rough English meaning</b><p>No problem. Would you prefer somewhere around Kallang or Bishan?</p></aside>
+              </div>
+            </article>
+
+                </div>
+              </section>
+
+              <section class="demo-use-case" aria-labelledby="conversation-title">
+                <header class="demo-subgroup-head">
+                  <h4 id="conversation-title">Conversation</h4>
+                  <p>Stories, humour, and casual replies across spoken and typed prompts.</p>
+                </header>
+
+                <div class="demo-grid">
+            <article class="demo">
+              <header><span>09</span><div><h3>A funny story</h3></div></header>
+              <div class="turn">
+                <p class="tag">Model input · Hokkien audio</p>
+                <audio controls preload="metadata" src="./assets/showcase/08/input.wav"></audio>
+                <aside><b>What is said, in English</b><p>“Tell me a funny story.”</p></aside>
+              </div>
+              <div class="turn output">
+                <p class="tag">Myna-Hokkien output · audio + transcript</p>
+                <audio controls preload="metadata" src="./assets/showcase/08/native.wav"></audio>
+                <div class="model-text"><b>Output transcript</b><p lang="nan">好啊，我讲一个关于阿公的予你听。有一日阿公去巴刹，买了一尾大鱼，结果转去厝内，鱼不见去矣！</p></div>
+                <aside><b>Rough English meaning</b><p>A grandfather buys a large fish at the market, but it is gone when he gets home.</p></aside>
+              </div>
+            </article>
+
+            <article class="demo">
+              <header><span>10</span><div><h3>Tell me a joke</h3></div></header>
+              <div class="turn">
+                <p class="tag">Model input · Hokkien audio</p>
+                <audio controls preload="metadata" src="./assets/showcase/10/input.wav"></audio>
+                <aside><b>What is said, in English</b><p>“Today is very boring. Tell me a joke.”</p></aside>
+              </div>
+              <div class="turn output">
+                <p class="tag">Myna-Hokkien output · audio + transcript</p>
+                <audio controls preload="metadata" src="./assets/showcase/10/native.wav"></audio>
+                <div class="model-text"><b>Output transcript</b><p lang="nan">好啊，我讲一个。为什么猪头爱去洗身？因为伊想欲变聪明，结果洗到变“猪油”！</p></div>
+                <aside><b>Rough English meaning</b><p>Why does a pig like to bathe? It wants to become clever, but ends up becoming “lard” instead.</p></aside>
               </div>
             </article>
 
@@ -303,6 +324,7 @@
               </div>
             </article>
               </div>
+              </section>
             </section>
           </div>
 
