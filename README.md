@@ -1,9 +1,11 @@
 # Myna-Hokkien project page
 
-A listening-first research note for **Myna-Hokkien**, iNLP Lab's native
-Qwen3-Omni conversational Singapore-Hokkien model. The main page compares the
-release with four external voice models across ten everyday use cases, then
-documents possible applications, limitations, and next releases.
+A compact, listening-first research note for **Myna-Hokkien**, iNLP Lab's
+Singapore-Hokkien speech model. The main page presents the release facts, one
+clearly scoped five-model listening example, ten selected Myna-Hokkien demos,
+run instructions, limitations, and citation details. The other model outputs
+for each selected demo remain inside collapsed comparison tables. The
+standalone comparison page remains available as an archive.
 
 ## Preview locally
 
@@ -17,12 +19,10 @@ Then open <http://localhost:8000>.
 
 ## Editing the showcase
 
-Comparison metadata lives in the `showcaseSamples` array near the top of
-`script.js`. Audio files are stored in `assets/showcase/`, with one numbered
-directory per use case and one input plus the five model outputs.
-
-The standalone `compare.html` page remains available as an archive. The current
-five-model comparison is now on the main page.
+The examples are written directly in `index.html`. Audio files are stored in
+`assets/showcase/`, with one numbered directory per use case. The main page
+shows `input.wav` and `native.wav` by default; the other model outputs use
+`preload="none"` and appear only when a reader opens the disclosure.
 
 ## Deployment
 

@@ -3,303 +3,386 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#132019" />
+    <meta name="theme-color" content="#ffffff" />
     <meta
       name="description"
-      content="Myna-Hokkien is an open-source end-to-end conversational speech model for Singapore Hokkien."
+      content="Myna-Hokkien is an open research release for spoken question answering in Singapore Hokkien."
     />
-    <meta property="og:title" content="Myna-Hokkien — Singapore Hokkien, in and out" />
+    <meta property="og:title" content="Myna-Hokkien — Singapore Hokkien speech research" />
     <meta
       property="og:description"
-      content="A listening-first research note on a native end-to-end Singapore-Hokkien conversational model."
+      content="Listen to selected Hokkien speech-in, speech-out examples from Myna-Hokkien."
     />
-    <title>Myna-Hokkien — Singapore Hokkien, in and out</title>
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <title>Myna-Hokkien — Singapore Hokkien speech research</title>
+    <link rel="icon" href="./favicon.svg?v=white-amber-20260810" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Noto+Sans+TC:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./article.css?v=hero-links-20260810" />
-    <script src="./script.js?v=release-myna-20260810" defer></script>
+    <link rel="stylesheet" href="./article.css?v=research-details-20260810b" />
+    <script src="./script.js?v=research-details-20260810b" defer></script>
   </head>
   <body>
-    <div class="page-progress" aria-hidden="true"><span></span></div>
-
-    <header class="site-header" data-header>
-      <a class="wordmark" href="#top" aria-label="Myna-Hokkien home">
-        <span class="wordmark-mark" aria-hidden="true">聽</span>
-        <span>Myna-Hokkien</span>
-      </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span></span><span></span>
-        <span class="sr-only">Toggle menu</span>
-      </button>
-      <nav id="site-nav" class="site-nav" aria-label="Article navigation">
-        <a href="#showcase">Listen</a>
-        <a href="#uses">Use cases</a>
-        <a href="#limitations">Limitations</a>
-        <a href="#next">Next</a>
-        <a class="nav-compare" href="https://huggingface.co/iNLP-Lab/MynaHokkien" target="_blank" rel="noreferrer">Get the model <span aria-hidden="true">↗</span></a>
-      </nav>
+    <header class="masthead" id="top">
+      <div class="wrap">
+        <p class="lab"><span aria-hidden="true"></span>iNLP Lab · Singapore University of Technology and Design</p>
+        <h1>Myna-<em>Hokkien</em></h1>
+        <p class="lede">
+          An open research release for spoken question answering in Singapore Hokkien.
+          Give it speech or text; it produces a spoken Hokkien response.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="https://huggingface.co/iNLP-Lab/MynaHokkien" target="_blank" rel="noreferrer">Get the model ↗</a>
+          <a class="button" href="#listen">Listen to examples ↓</a>
+          <a class="button" href="#run">Run it</a>
+        </div>
+        <div class="signal" aria-label="Speech or text input passes through Myna-Hokkien to produce Hokkien speech">
+          <span>Speech or text in</span>
+          <span class="wave" aria-hidden="true">
+            <i style="--h:28%;--d:-.1s"></i><i style="--h:52%;--d:-.7s"></i><i style="--h:82%;--d:-.3s"></i><i style="--h:44%;--d:-1s"></i><i style="--h:68%;--d:-.5s"></i><i style="--h:34%;--d:-.9s"></i><i style="--h:88%;--d:-.2s"></i><i style="--h:58%;--d:-.8s"></i><i style="--h:40%;--d:-.4s"></i><i style="--h:72%;--d:-1.1s"></i><i style="--h:48%;--d:-.6s"></i><i style="--h:24%;--d:-.15s"></i>
+          </span>
+          <strong>Myna-Hokkien</strong>
+          <span class="wave wave-out" aria-hidden="true">
+            <i style="--h:38%;--d:-.8s"></i><i style="--h:76%;--d:-.2s"></i><i style="--h:46%;--d:-.6s"></i><i style="--h:90%;--d:-.4s"></i><i style="--h:58%;--d:-1s"></i><i style="--h:30%;--d:-.3s"></i><i style="--h:68%;--d:-.9s"></i><i style="--h:42%;--d:-.1s"></i><i style="--h:84%;--d:-.7s"></i><i style="--h:54%;--d:-.5s"></i><i style="--h:32%;--d:-1.1s"></i><i style="--h:62%;--d:-.25s"></i>
+          </span>
+          <span>Hokkien speech out</span>
+        </div>
+      </div>
     </header>
 
-    <main id="top">
-      <article>
-        <header class="article-hero">
-          <div class="article-shell hero-grid">
-            <div class="hero-copy entrance">
-              <p class="article-meta">SUTD iNLP Lab · Open research release · August 2026</p>
-              <h1>Myna-<em>Hokkien.</em></h1>
-              <p class="article-deck">
-                Myna-Hokkien is an open-source end-to-end conversational speech model for
-                Singapore Hokkien. Users speak to the model in Hokkien and the model replies
-                in natural-sounding Hokkien speech—no text round-trip required, though text
-                input and output are also supported.
-              </p>
-              <div class="artifact-links">
-                <a class="primary-link" href="#showcase">Hear all 10 comparisons <span aria-hidden="true">↓</span></a>
-                <a href="https://huggingface.co/iNLP-Lab/MynaHokkien" target="_blank" rel="noreferrer">Model on Hugging Face <span aria-hidden="true">↗</span></a>
-              </div>
-            </div>
+    <main>
+      <section class="section project-section" aria-labelledby="about-title">
+        <div class="wrap narrow">
+          <p class="eyebrow">The project</p>
+          <h2 id="about-title">Hokkien remains under-supported in speech AI.</h2>
+          <p>
+            Hokkien is spoken across Asia and carries family life, humour, and everyday knowledge
+            in Singapore. Yet it remains largely absent from mainstream speech interfaces.
+            Myna-Hokkien is one open research attempt to address that gap.
+          </p>
 
-            <div class="hero-signal entrance" aria-hidden="true">
-              <div class="signal-end">
-                <span class="signal-label">Audio in</span>
-                <div class="signal-wave signal-wave-in"></div>
+          <div class="project-probe" aria-labelledby="probe-title">
+            <div class="probe-prompt">
+              <div>
+                <p class="eyebrow">One illustrative prompt</p>
+                <h3 id="probe-title">“Can you tell me a joke?”</h3>
               </div>
-              <span class="signal-core">福建話</span>
-              <div class="signal-end signal-end-out">
-                <div class="signal-wave signal-wave-out"></div>
-                <span class="signal-label signal-label-out">Audio out</span>
-              </div>
+              <audio controls preload="none" src="./assets/showcase/07/input.wav" aria-label="Hokkien joke request"></audio>
             </div>
+            <div class="probe-grid">
+              <div class="probe-cell is-myna"><strong>Myna-Hokkien</strong><audio controls preload="none" src="./assets/showcase/07/native.wav"></audio><p>Replies in Singapore Hokkien.</p></div>
+              <div class="probe-cell"><strong>GPT Audio</strong><audio controls preload="none" src="./assets/showcase/07/gptaudio.wav"></audio><p>Singapore Hokkien; the tone sounds unusual in this clip.</p></div>
+              <div class="probe-cell"><strong>Qwen3.5-Omni</strong><audio controls preload="none" src="./assets/showcase/07/qwen.wav"></audio><p>Replies in Mandarin.</p></div>
+              <div class="probe-cell"><strong>Gemini</strong><audio controls preload="none" src="./assets/showcase/07/gemini.wav"></audio><p>Singapore Hokkien; the delivery sounds robotic in this clip.</p></div>
+              <div class="probe-cell"><strong>GLM-Voice</strong><audio controls preload="none" src="./assets/showcase/07/glmvoice.wav"></audio><p>Replies in Mandarin.</p></div>
+            </div>
+            <p class="probe-note">Language and delivery labels reflect our listening to this selected run. It is an illustrative example, not a benchmark or a general evaluation of these systems.</p>
           </div>
-          <div class="article-shell status-line entrance" aria-label="Project status">
-            <span><strong>Model</strong> Native Qwen3-Omni</span>
-            <span><strong>Primary task</strong> Spoken question answering</span>
-            <span><strong>Language</strong> Singapore Hokkien</span>
-            <span><strong>Status</strong> Research release</span>
-          </div>
-        </header>
+          <p class="project-close">
+            Myna-Hokkien closes part of that gap, and leaves behind a recipe other low-resource
+            language communities can reuse. It is a research release, not a product—the Hokkien is
+            imperfect, the task coverage is narrow, and the <a href="#limitations">limitations</a>
+            are worth reading before you build on it.
+          </p>
+        </div>
+      </section>
 
-        <section class="article-section summary-section" aria-labelledby="summary-title">
-          <div class="article-shell article-grid">
-            <p class="margin-label">In brief</p>
-            <div class="article-copy">
-              <h2 id="summary-title">A native voice model for an underserved language.</h2>
-              <p class="lead">
-                Hokkien is the native language of tens of millions of speakers across Asia,
-                yet it remains almost entirely absent from mainstream speech AI: no existing
-                omni-style model—open or closed—natively supports Hokkien.
-              </p>
-              <p>
-                Myna-Hokkien is an attempt to close that gap, and to leave behind a reusable
-                recipe for other low-resource language communities to do the same.
-              </p>
-              <p class="lab-credit">Proudly built by <a href="https://huggingface.co/iNLP-Lab" target="_blank" rel="noreferrer">iNLP Lab <span aria-hidden="true">↗</span></a></p>
-              <div class="single-path" aria-label="One native model maps Hokkien audio directly to a spoken Hokkien answer">
-                <span>Hokkien audio</span><i aria-hidden="true">→</i><strong>Qwen3-Omni</strong><i aria-hidden="true">→</i><span>Hokkien answer</span>
-              </div>
-            </div>
-          </div>
-        </section>
+      <hr />
 
-        <section id="showcase" class="article-section showcase-section" aria-labelledby="showcase-title">
-          <div class="wide-shell">
-            <div class="section-heading article-grid">
-              <p class="margin-label">01 · Listen</p>
-              <div class="article-copy">
-                <h2 id="showcase-title">Same question. Five voice models.</h2>
-                <p>
-                  Hear Myna-Hokkien beside GPT Audio, Qwen3.5-Omni-Plus, Gemini, and
-                  GLM-Voice on ten practical prompts. The point is simple: listen to what
-                  each system makes possible in Hokkien.
-                </p>
-              </div>
-            </div>
-
-            <div class="listen-key" aria-label="Comparison legend">
-              <span><i class="key-native"></i> Myna-Hokkien · this open-source release</span>
-              <span><i class="key-external"></i> External comparison models</span>
-            </div>
-
-            <p class="comparison-verdict">
-              <strong>No score can replace the conversation.</strong> Start with the original
-              prompt, then hear whether each model understands it, answers usefully, and stays
-              in Hokkien.
-            </p>
-
-            <div class="showcase-workspace">
-              <div class="showcase-rail">
-                <div class="rail-heading"><span>Use case</span><span>10 examples</span></div>
-                <ol class="showcase-list" data-showcase-list aria-label="Choose a use case"></ol>
-              </div>
-
-              <article class="showcase-detail" data-showcase-detail aria-live="polite">
-                <div class="showcase-topline">
-                  <span class="showcase-kind"></span>
-                  <span class="showcase-count"></span>
-                </div>
-                <div class="showcase-prompt">
-                  <p class="eyebrow">What the person asks</p>
-                  <h3></h3>
-                  <p class="prompt-note"></p>
-                  <div class="source-audio" data-source-audio></div>
-                </div>
-                <div class="response-pair" data-response-pair></div>
-                <p class="listening-note">Listen for relevance, intelligibility, pace, and how directly each system answers—not just voice quality.</p>
-              </article>
-            </div>
-
-            <p class="showcase-method">
-              <strong>Reading the comparison.</strong> All five models receive the same source prompt.
-              The clips are presented for qualitative listening across the same ten use cases.
-              No numerical ranking or broad performance claim is implied by these selected examples.
+      <section class="section" id="listen" aria-labelledby="listen-title">
+        <div class="wrap">
+          <div class="section-head narrow">
+            <p class="eyebrow">Selected examples</p>
+            <h2 id="listen-title">Hear what the model does.</h2>
+            <p>
+              Each example shows the original input and Myna-Hokkien's response first.
+              Open the collapsed section to hear the four other model clips.
             </p>
           </div>
-        </section>
 
-        <section id="uses" class="article-section uses-section" aria-labelledby="uses-title">
-          <div class="article-shell article-grid">
-            <p class="margin-label">02 · Possibilities</p>
-            <div class="article-copy">
-              <h2 id="uses-title">What this approach could make possible</h2>
-              <p class="lead">
-                An end-to-end Hokkien model opens three directions: richer speech interaction,
-                useful Hokkien voice applications, and a foundation others can adapt.
-              </p>
-              <aside class="possibility-note" aria-label="Current release note">
-                <span>Current release note</span>
-                <p>Myna-Hokkien is an early spoken question-answering model. Its Hokkien remains imperfect, its task coverage is narrow, and its speech does not yet carry much emotional variation.</p>
-              </aside>
-              <ol class="use-list">
-                <li>
-                  <span>01</span>
-                  <div>
-                    <strong>Affect-aware, emotionally expressive conversation</strong>
-                    <p>
-                      An end-to-end speech model can learn more than the words being said. In
-                      principle, it can use <em>paralinguistic cues</em>—prosody, pace, loudness,
-                      timbre, and emotion—to understand how someone speaks and answer with a
-                      context-appropriate tone. Myna-Hokkien does not yet do this reliably; the
-                      architecture makes it possible, while expressive data determines whether it
-                      can actually be learned.
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <span>02</span>
-                  <div>
-                    <strong>General Hokkien voice applications</strong>
-                    <p>Use the same conversational layer wherever speaking is easier or more natural than typing.</p>
-                    <ul class="application-examples">
-                      <li><b>Family and elder-facing assistants</b> for everyday help, explanations, reminders, and conversation.</li>
-                      <li><b>Community and public-service access</b> through kiosks, helplines, and service navigation after domain-specific safety work.</li>
-                      <li><b>Language learning and oral heritage</b> for pronunciation, sayings, and spoken practice without forcing every exchange through writing.</li>
-                      <li><b>Local, hands-free help</b> for drafting messages, brainstorming, and practical questions while working or moving.</li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <span>03</span>
-                  <div>
-                    <strong>A reusable foundation for adaptation</strong>
-                    <p>
-                      Developers can start from Myna-Hokkien instead of rebuilding Hokkien speech
-                      capability from zero: adapt it for a particular task, improve its Hokkien
-                      language or accent coverage, or add new speaking behaviours. The same training
-                      recipe can also help other low-resource language communities build their own
-                      native speech models.
-                    </p>
-                  </div>
-                </li>
-              </ol>
-            </div>
+          <div class="legend" aria-label="Demo guide">
+            <span><i class="solid"></i>Model input or output</span>
+            <span><i class="dotted"></i>Reader note, not model output</span>
           </div>
-        </section>
 
-        <section id="limitations" class="article-section limitations-section" aria-labelledby="limitations-title">
-          <div class="article-shell article-grid">
-            <p class="margin-label">03 · Limitations</p>
-            <div class="article-copy">
-              <h2 id="limitations-title">It can answer. It cannot yet feel every answer.</h2>
-              <p class="lead">
-                The model's words may be sympathetic, excited, or playful, but its voice still has
-                limited emotional range. We do not yet have enough varied, expressive Hokkien speech
-                data to teach that range reliably.
-              </p>
-              <ul class="limitation-list">
-                <li>The current task coverage is narrow: mainly spoken question answering, not a general Hokkien agent.</li>
-                <li>Emotion, speaking style, and fine-grained delivery cannot be controlled reliably.</li>
-                <li>The ten clips above are selected listening examples, not a fixed public benchmark.</li>
-                <li>Responses can still be inaccurate, awkward, repetitive, or inconsistent; high-stakes use requires human oversight.</li>
-                <li>Accent and vocabulary coverage lean toward the data we have, and will not represent every Hokkien-speaking community equally.</li>
-              </ul>
-              <aside class="data-callout">
-                <span>Have expressive Hokkien speech data?</span>
-                <p>
-                  Emotion-rich conversation, varied speakers, and carefully aligned recordings would
-                  directly address one of the release's largest gaps.
-                </p>
-                <a href="https://isakzhang.github.io/" target="_blank" rel="noreferrer">Contact the team to collaborate <span aria-hidden="true">↗</span></a>
-              </aside>
-            </div>
-          </div>
-        </section>
-
-        <section id="next" class="article-section next-section" aria-labelledby="next-title">
-          <div class="article-shell article-grid">
-            <p class="margin-label">04 · Next</p>
-            <div class="article-copy">
-              <h2 id="next-title">Smaller to run. Broader in what it can do.</h2>
-              <p class="lead">
-                The next releases will explore the same native speech-to-speech idea with smaller
-                weights, and extend beyond today's spoken-QA focus.
-              </p>
-              <ol class="next-list">
-                <li><span>01</span><div><strong>Release lighter checkpoints</strong><p>Make experimentation and deployment possible on more modest hardware.</p></div></li>
-                <li><span>02</span><div><strong>Cover more tasks</strong><p>Move beyond answering questions toward summarisation, guided workflows, learning, and other useful spoken interactions.</p></div></li>
-                <li><span>03</span><div><strong>Evaluate with the community</strong><p>Measure usefulness, naturalness, and failure modes with Hokkien speakers across ages and backgrounds.</p></div></li>
-              </ol>
-            </div>
-          </div>
-        </section>
-
-        <section class="article-section context-section" aria-labelledby="context-title">
-          <div class="article-shell article-grid">
-            <p class="margin-label">Why now</p>
-            <div class="article-copy">
-              <h2 id="context-title">Keep a spoken language useful in spoken interfaces.</h2>
-              <p>
-                Singapore Hokkien carries family life, humour, memory, and everyday knowledge, yet it
-                remains largely absent from modern voice systems. Myna-Hokkien is one attempt to make
-                that gap audible—and to make the work reusable by other low-resource language communities.
-              </p>
-              <div class="source-links">
-                <a href="https://huggingface.co/iNLP-Lab/MynaHokkien" target="_blank" rel="noreferrer">Explore the model <span aria-hidden="true">↗</span></a>
-                <a href="https://huggingface.co/iNLP-Lab" target="_blank" rel="noreferrer">SUTD iNLP Lab <span aria-hidden="true">↗</span></a>
+          <div class="demo-grid">
+            <article class="demo">
+              <header><span>01</span><div><h3>Feeling stuck</h3><p>Emotional support</p></div></header>
+              <div class="turn">
+                <p class="tag">Model input · Hokkien audio</p>
+                <audio controls preload="metadata" src="./assets/showcase/01/input.wav"></audio>
+                <aside><b>What is said, in English</b><p>“I feel very sian. Life has no meaning.”</p></aside>
               </div>
-            </div>
+              <div class="turn output">
+                <p class="tag">Myna-Hokkien output · audio + transcript</p>
+                <audio controls preload="metadata" src="./assets/showcase/01/native.wav"></audio>
+                <div class="model-text"><b>Output transcript</b><p lang="nan">哎哟，莫按呢讲。发生什么代志？讲予我听，看我敢会当帮你。</p></div>
+                <aside><b>Rough English meaning</b><p>Please don't say that. What happened? Tell me about it—perhaps I can help.</p></aside>
+              </div>
+            </article>
+
+            <article class="demo">
+              <header><span>02</span><div><h3>A low mood</h3><p>Emotional support</p></div></header>
+              <div class="turn">
+                <p class="tag">Model input · Hokkien audio</p>
+                <audio controls preload="metadata" src="./assets/showcase/02/input.wav"></audio>
+                <aside><b>What is said, in English</b><p>“My mood is very low today.”</p></aside>
+              </div>
+              <div class="turn output">
+                <p class="tag">Myna-Hokkien output · audio + transcript</p>
+                <audio controls preload="metadata" src="./assets/showcase/02/native.wav"></audio>
+                <div class="model-text"><b>Output transcript</b><p lang="nan">哎哟，做么心情按呢差？发生什么代志啊？</p></div>
+                <aside><b>Rough English meaning</b><p>Oh dear, why are you feeling so down? What happened?</p></aside>
+              </div>
+            </article>
+
+            <article class="demo">
+              <header><span>03</span><div><h3>Angry—play a song</h3><p>Everyday recommendation</p></div></header>
+              <div class="turn">
+                <p class="tag">Model input · Hokkien audio</p>
+                <audio controls preload="metadata" src="./assets/showcase/03/input.wav"></audio>
+                <aside><b>What is said, in English</b><p>“I'm very angry. Can you recommend a song?”</p></aside>
+              </div>
+              <div class="turn output">
+                <p class="tag">Myna-Hokkien output · audio + transcript</p>
+                <audio controls preload="metadata" src="./assets/showcase/03/native.wav"></audio>
+                <div class="model-text"><b>Output transcript</b><p lang="nan">哎哟，做啥物按呢气？我来帮你听看觅。是按怎的歌？</p></div>
+                <aside><b>Rough English meaning</b><p>Why are you so angry? Let me help. What kind of song would you like?</p></aside>
+              </div>
+            </article>
+
+            <article class="demo">
+              <header><span>04</span><div><h3>Birthday pronunciation</h3><p>Language help</p></div></header>
+              <div class="turn">
+                <p class="tag">Model input · Hokkien audio</p>
+                <audio controls preload="metadata" src="./assets/showcase/04/input.wav"></audio>
+                <aside><b>What is said, in English</b><p>“How do I pronounce ‘happy birthday’?”</p></aside>
+              </div>
+              <div class="turn output">
+                <p class="tag">Myna-Hokkien output · audio + transcript</p>
+                <audio controls preload="metadata" src="./assets/showcase/04/native.wav"></audio>
+                <div class="model-text"><b>Output transcript</b><p lang="nan">哎哟，生日就是“生日”啦，毋是“生利”。</p></div>
+                <aside><b>Rough English meaning</b><p>It is “birthday”, not “making a profit”.</p></aside>
+              </div>
+            </article>
+
+            <article class="demo">
+              <header><span>05</span><div><h3>Ask for leave</h3><p>Writing help</p></div></header>
+              <div class="turn">
+                <p class="tag">Model input · Hokkien audio</p>
+                <audio controls preload="metadata" src="./assets/showcase/05/input.wav"></audio>
+                <aside><b>What is said, in English</b><p>“Help me write an email to ask for leave.”</p></aside>
+              </div>
+              <div class="turn output">
+                <p class="tag">Myna-Hokkien output · audio + transcript</p>
+                <audio controls preload="metadata" src="./assets/showcase/05/native.wav"></audio>
+                <div class="model-text"><b>Output transcript</b><p lang="nan">好，我来帮你写。你是欲请病假，还是普通休假？</p></div>
+                <aside><b>Rough English meaning</b><p>Sure, I can help write it. Do you need sick leave or regular leave?</p></aside>
+              </div>
+            </article>
+
+            <article class="demo">
+              <header><span>06</span><div><h3>Start a business</h3><p>Idea generation</p></div></header>
+              <div class="turn">
+                <p class="tag">Model input · Hokkien audio</p>
+                <audio controls preload="metadata" src="./assets/showcase/06/input.wav"></audio>
+                <aside><b>What is said, in English</b><p>“I want to start a business. What would you recommend?”</p></aside>
+              </div>
+              <div class="turn output">
+                <p class="tag">Myna-Hokkien output · audio + transcript</p>
+                <audio controls preload="metadata" src="./assets/showcase/06/native.wav"></audio>
+                <div class="model-text"><b>Output transcript</b><p lang="nan">哎哟，想欲做生意啊？你是有想欲做啥物款的生意无？</p></div>
+                <aside><b>Rough English meaning</b><p>You want to start a business? Do you have a particular kind of business in mind?</p></aside>
+              </div>
+            </article>
+
+            <article class="demo">
+              <header><span>07</span><div><h3>Tell me a joke</h3><p>Conversation</p></div></header>
+              <div class="turn">
+                <p class="tag">Model input · Hokkien audio</p>
+                <audio controls preload="metadata" src="./assets/showcase/07/input.wav"></audio>
+                <aside><b>What is said, in English</b><p>“Can you tell me a joke?”</p></aside>
+              </div>
+              <div class="turn output">
+                <p class="tag">Myna-Hokkien output · audio + transcript</p>
+                <audio controls preload="metadata" src="./assets/showcase/07/native.wav"></audio>
+                <div class="model-text"><b>Output transcript</b><p lang="nan">好啊，我来讲一个关于一只笨猴子的故事，保证你听了会笑。</p></div>
+                <aside><b>Rough English meaning</b><p>Sure—I'll tell you a story about a silly monkey. It should make you laugh.</p></aside>
+              </div>
+            </article>
+
+            <article class="demo">
+              <header><span>08</span><div><h3>Feeling bothered</h3><p>Everyday advice</p></div></header>
+              <div class="turn">
+                <p class="tag">Model input · Hokkien audio</p>
+                <audio controls preload="metadata" src="./assets/showcase/08/input.wav"></audio>
+                <aside><b>What is said, in English</b><p>“I've been very bothered lately. How can I feel less bothered?”</p></aside>
+              </div>
+              <div class="turn output">
+                <p class="tag">Myna-Hokkien output · audio + transcript</p>
+                <audio controls preload="metadata" src="./assets/showcase/08/native.wav"></audio>
+                <div class="model-text"><b>Output transcript</b><p lang="nan">哎哟，做啥物代志予你按呢烦恼？讲予我听，看我敢会当帮你。</p></div>
+                <aside><b>Rough English meaning</b><p>What's been troubling you? Tell me about it—perhaps I can help.</p></aside>
+              </div>
+            </article>
+
+            <article class="demo">
+              <header><span>09</span><div><h3>A cheaper haircut</h3><p>Local question</p></div></header>
+              <div class="turn">
+                <p class="tag">Model input · Hokkien audio</p>
+                <audio controls preload="metadata" src="./assets/showcase/09/input.wav"></audio>
+                <aside><b>What is said, in English</b><p>“Where nearby can I get a cheaper haircut?”</p></aside>
+              </div>
+              <div class="turn output">
+                <p class="tag">Myna-Hokkien output · audio + transcript</p>
+                <audio controls preload="metadata" src="./assets/showcase/09/native.wav"></audio>
+                <div class="model-text"><b>Output transcript</b><p lang="nan">好啊，汝想欲剪啥物款的？我帮你揣几间口碑好的。</p></div>
+                <aside><b>Rough English meaning</b><p>Sure. What kind of haircut would you like? I can help you look for a few well-reviewed places.</p></aside>
+              </div>
+            </article>
+
+            <article class="demo">
+              <header><span>10</span><div><h3>Text to Hokkien speech</h3><p>Text instruction</p></div></header>
+              <div class="turn">
+                <p class="tag">Model input · English text</p>
+                <p class="text-input">Draft an email for me to request a day off at work.</p>
+                <aside><b>Input format</b><p>This example starts from typed English rather than recorded speech.</p></aside>
+              </div>
+              <div class="turn output">
+                <p class="tag">Myna-Hokkien output · audio + transcript</p>
+                <audio controls preload="metadata" src="./assets/showcase/10/native.wav"></audio>
+                <div class="model-text"><b>Output transcript</b><p lang="nan">好啊，我来帮你写。请问你是欲请哪一日？是病假抑是事假？</p></div>
+                <aside><b>Rough English meaning</b><p>Sure, I can help draft it. Which day do you want off, and is it sick leave or personal leave?</p></aside>
+              </div>
+            </article>
           </div>
-        </section>
-      </article>
+
+          <p class="method-note">
+            These are selected qualitative examples, not a benchmark or evidence of broad performance.
+            Written input descriptions and rough English meanings are reader annotations. The other
+            model clips are provided without a score or ranking. Output transcripts follow the
+            paired release records, with sample 4 trimmed to match the spoken clip.
+          </p>
+        </div>
+      </section>
+
+      <hr />
+
+      <section class="section" id="how" aria-labelledby="how-title">
+        <div class="wrap narrow">
+          <p class="eyebrow">How it works</p>
+          <h2 id="how-title">One native model, speech to speech.</h2>
+          <dl class="facts">
+            <div><dt>Base architecture</dt><dd>Qwen3-Omni-30B-A3B-Instruct</dd></div>
+            <div><dt>Weights</dt><dd>Approximately 70.5 GB · BF16 / FP16</dd></div>
+            <div><dt>Language</dt><dd>Singapore Hokkien / Minnan · <code>nan</code></dd></div>
+            <div><dt>Voice</dt><dd><code>Ethan</code> · single voice in this release</dd></div>
+            <div><dt>Input / output</dt><dd>16 kHz mono audio or text in; text and 24 kHz mono audio out</dd></div>
+            <div><dt>Primary task</dt><dd>Spoken question answering</dd></div>
+            <div><dt>License</dt><dd></dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <hr />
+
+      <section class="section" id="run" aria-labelledby="run-title">
+        <div class="wrap narrow">
+          <p class="eyebrow">Run it</p>
+          <h2 id="run-title">Install, then ask a spoken question.</h2>
+          <p>Weights, runtime, and full documentation are on <a href="https://huggingface.co/iNLP-Lab/MynaHokkien" target="_blank" rel="noreferrer">Hugging Face ↗</a>.</p>
+          <pre><code><span class="code-comment"># Install</span>
+pip install --upgrade huggingface_hub
+MODEL_DIR="$(hf download iNLP-Lab/MynaHokkien --quiet)"
+pip install "$MODEL_DIR"</code></pre>
+          <pre><code>import torch
+import soundfile as sf
+from mynahokkien import MynaHokkien
+
+model = MynaHokkien.from_pretrained(
+    "iNLP-Lab/MynaHokkien",
+    device_map="cuda:0",
+    dtype=torch.float16,
+)
+
+output = model.generate(
+    audio="question.wav",
+    language="nan",
+    return_text=True,
+    return_audio=True,
+)
+
+print(output.text)
+sf.write("output.wav", output.audio, output.sampling_rate)</code></pre>
+          <p class="code-note">Supply exactly one of <code>audio=</code> or <code>text=</code>. If <code>prompt=</code> is omitted, the release runtime applies its built-in instruction requesting a concise Singapore-Hokkien reply written in Hanji. The prompt is an instruction, not a hard decoding guarantee.</p>
+        </div>
+      </section>
+
+      <hr />
+
+      <section class="section" id="limitations" aria-labelledby="limits-title">
+        <div class="wrap narrow">
+          <p class="eyebrow">Limitations</p>
+          <h2 id="limits-title">What this release does not establish.</h2>
+          <ul class="plain-list">
+            <li>The examples above are selected demonstrations and do not measure accuracy, naturalness, or preference.</li>
+            <li>Responses may be inaccurate, awkward, repetitive, or inconsistent.</li>
+            <li>Task coverage is currently narrow and centred on short, single-turn question answering.</li>
+            <li>Emotion, speaking style, and fine-grained delivery are not reliably controllable.</li>
+            <li>Accent and vocabulary coverage may not represent every Hokkien-speaking community equally.</li>
+            <li>High-stakes or time-sensitive information requires independent verification and human oversight.</li>
+          </ul>
+        </div>
+      </section>
+
+      <hr />
+
+      <section class="section" id="next" aria-labelledby="next-title">
+        <div class="wrap narrow">
+          <p class="eyebrow">Next steps</p>
+          <h2 id="next-title">Improve the model, then evaluate it more broadly.</h2>
+          <ul class="plain-list">
+            <li><strong>Lighter checkpoints</strong> to support experiments on more modest hardware.</li>
+            <li><strong>Broader tasks</strong> beyond the current spoken question-answering focus.</li>
+            <li><strong>Community evaluation</strong> with Hokkien speakers across different ages and backgrounds.</li>
+            <li><strong>More expressive data</strong> to study speaking style and emotional range.</li>
+          </ul>
+          <div class="contact">
+            <div><h3>Have expressive Hokkien speech data?</h3><p>We welcome conversations about data, evaluation, and research collaboration.</p></div>
+            <a class="button" href="https://isakzhang.github.io/" target="_blank" rel="noreferrer">Contact the team ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <hr />
+
+      <section class="section citation-section" id="citation" aria-labelledby="citation-title">
+        <div class="wrap narrow">
+          <p class="eyebrow">Citation</p>
+          <h2 id="citation-title">Cite this release.</h2>
+          <pre><code>@misc{myna-hokkien-2026,
+  title  = {Myna-Hokkien: An Open-Source End-to-End Hokkien Spoken Dialogue Model},
+  author = {Matt, Ryner, Wenxuan},
+  year   = {2026},
+  howpublished = {\url{https://huggingface.co/iNLP-Lab/MynaHokkien}}
+}</code></pre>
+        </div>
+      </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="wide-shell footer-grid">
-        <div>
-          <strong>Myna-Hokkien</strong>
-          <p>Native Singapore-Hokkien speech research from SUTD iNLP Lab.</p>
-        </div>
-        <div class="footer-links">
-          <a href="#showcase">Listen again</a>
+    <footer>
+      <div class="wrap footer-row">
+        <div><strong>Myna-Hokkien</strong><p>Singapore Hokkien speech research · iNLP Lab, SUTD</p></div>
+        <nav aria-label="Footer navigation">
           <a href="https://huggingface.co/iNLP-Lab/MynaHokkien" target="_blank" rel="noreferrer">Hugging Face ↗</a>
+          <a href="#listen">Listen again</a>
+          <a href="#run">Run it</a>
+          <a href="#citation">Citation</a>
           <a href="#top">Back to top ↑</a>
-        </div>
-        <p class="footer-note">Research prototype. Outputs may be incomplete, inaccurate, or inconsistent.</p>
-        <p>© <span data-year></span> SUTD iNLP Lab</p>
+        </nav>
+        <p class="disclaimer">Research prototype. Outputs may be incomplete, inaccurate, or inconsistent. © <span data-year>2026</span> SUTD iNLP Lab.</p>
       </div>
     </footer>
   </body>
