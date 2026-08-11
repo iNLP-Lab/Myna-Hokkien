@@ -78,7 +78,6 @@
               <div class="probe-cell"><strong>Gemini Live</strong><audio controls preload="none" src="./assets/showcase/04/gemini.wav"></audio><p>Fails to help with tonality and is generally incoherent.</p></div>
               <div class="probe-cell"><strong>GLM-Voice</strong><audio controls preload="none" src="./assets/showcase/04/glmvoice.wav"></audio><p>Answers in Mandarin incoherently.</p></div>
             </div>
-            <p class="probe-note">Language and delivery labels reflect our listening to this selected run. It is an illustrative example, not a benchmark or a general evaluation of these systems.</p>
           </div>
         </div>
       </section>
@@ -92,7 +91,7 @@
             <h2 id="listen-title">Hear what the model does.</h2>
             <p>
               Each example shows the original input and Myna-Hokkien's response first.
-              For the first three examples, open the collapsed section to hear the four other model clips.
+              For the first two examples, open the collapsed section to hear the four other model clips.
             </p>
           </div>
 
@@ -106,7 +105,7 @@
               <header class="demo-group-head">
                 <div>
                   <h3 id="prosody-group-title">Myna understands your tone and responds appropriately.</h3>
-                  <p>Three spoken requests show how the model responds to low mood, frustration, and anger.</p>
+                  <p>Two spoken requests show how the model responds to low mood and anger.</p>
                 </div>
               </header>
 
@@ -116,23 +115,8 @@
               </header>
 
               <div class="demo-grid">
-            <article class="demo" data-comparison>
-              <header><span>01</span><div><h3>Feeling stuck</h3></div></header>
-              <div class="turn">
-                <p class="tag">Model input · Hokkien audio</p>
-                <audio controls preload="metadata" src="./assets/showcase/01/input.wav"></audio>
-                <aside><b>What is said, in English</b><p>“I feel very sian. Life has no meaning.”</p></aside>
-              </div>
-              <div class="turn output">
-                <p class="tag">Myna-Hokkien output · audio + transcript</p>
-                <audio controls preload="metadata" src="./assets/showcase/01/native.wav"></audio>
-                <div class="model-text"><b>Output transcript</b><p lang="nan">哎哟，莫按呢讲。发生什么代志？讲予我听，看我敢会当帮你。</p></div>
-                <aside><b>Rough English meaning</b><p>Please don't say that. What happened? Tell me about it—perhaps I can help.</p></aside>
-              </div>
-            </article>
-
-            <article class="demo" data-comparison>
-              <header><span>02</span><div><h3>A low mood</h3></div></header>
+            <article class="demo" data-comparison data-source-id="02">
+              <header><span>01</span><div><h3>A low mood</h3></div></header>
               <div class="turn">
                 <p class="tag">Model input · Hokkien audio</p>
                 <audio controls preload="metadata" src="./assets/showcase/02/input.wav"></audio>
@@ -146,18 +130,18 @@
               </div>
             </article>
 
-            <article class="demo" data-comparison>
-              <header><span>03</span><div><h3>Angry—play a song</h3></div></header>
+            <article class="demo" data-comparison data-source-id="03">
+              <header><span>02</span><div><h3>Angry—play a song</h3></div></header>
               <div class="turn">
                 <p class="tag">Model input · Hokkien audio</p>
                 <audio controls preload="metadata" src="./assets/showcase/03/input.wav"></audio>
-                <aside><b>What is said, in English</b><p>“I'm very angry. Can you recommend a song?”</p></aside>
+                <aside><b>What is said, in English</b><p>“I was really angry today. Can you play a song for me?”</p></aside>
               </div>
               <div class="turn output">
                 <p class="tag">Myna-Hokkien output · audio + transcript</p>
                 <audio controls preload="metadata" src="./assets/showcase/03/native.wav"></audio>
-                <div class="model-text"><b>Output transcript</b><p lang="nan">哎哟，做啥物按呢气？我来帮你听看觅。是按怎的歌？</p></div>
-                <aside><b>Rough English meaning</b><p>Why are you so angry? Let me help. What kind of song would you like?</p></aside>
+                <div class="model-text"><b>Output transcript</b><p lang="nan">哎哟，做啥米按呢气？我来帮你听看觅。是按怎的歌</p></div>
+                <aside><b>Rough English meaning</b><p>Why are you so angry? Tell me about it. What type of song would you like?</p></aside>
               </div>
             </article>
               </div>
@@ -180,22 +164,22 @@
                 <div class="demo-grid">
 
             <article class="demo">
-              <header><span>04</span><div><h3>Fry long beans with egg</h3></div></header>
+              <header><span>03</span><div><h3>Cooking Help</h3></div></header>
               <div class="turn">
                 <p class="tag">Model input · Hokkien audio</p>
                 <audio controls preload="metadata" src="./assets/showcase/05/input.wav"></audio>
-                <aside><b>What is said, in English</b><p>“How do I fry long beans with egg?”</p></aside>
+                <aside><b>What is said, in English</b><p>“Can you teach me how to cook long beans with egg?”</p></aside>
               </div>
               <div class="turn output">
                 <p class="tag">Myna-Hokkien output · audio + transcript</p>
                 <audio controls preload="metadata" src="./assets/showcase/05/native.wav"></audio>
                 <div class="model-text"><b>Output transcript</b><p lang="nan">好啊，真简单。汝是欲炒青菜，抑是欲炒那种加肉碎的？</p></div>
-                <aside><b>Rough English meaning</b><p>Sure, that's simple. Would you like stir-fried vegetables, or something with minced meat?</p></aside>
+                <aside><b>Rough English meaning</b><p>Sure, it's easy. Would you like to fry it with vegetables or with minced meat?</p></aside>
               </div>
             </article>
 
             <article class="demo">
-              <header><span>05</span><div><h3>Start a business</h3></div></header>
+              <header><span>04</span><div><h3>Start a business</h3></div></header>
               <div class="turn">
                 <p class="tag">Model input · Hokkien audio</p>
                 <audio controls preload="metadata" src="./assets/showcase/06/input.wav"></audio>
@@ -210,41 +194,41 @@
             </article>
 
             <article class="demo">
-              <header><span>06</span><div><h3>Explain AI simply</h3></div></header>
+              <header><span>05</span><div><h3>Explain AI simply</h3></div></header>
               <div class="turn">
                 <p class="tag">Model input · Hokkien audio</p>
                 <audio controls preload="metadata" src="./assets/showcase/07/input.wav"></audio>
-                <aside><b>What is said, in English</b><p>A request to explain artificial intelligence in simple terms.</p></aside>
+                <aside><b>What is said, in English</b><p>“Recently, everyone's talking about AI. Can you explain to me what AI is?”</p></aside>
               </div>
               <div class="turn output">
                 <p class="tag">Myna-Hokkien output · audio + transcript</p>
                 <audio controls preload="metadata" src="./assets/showcase/07/native.wav"></audio>
                 <div class="model-text"><b>Output transcript</b><p lang="nan">好啊，无问题！简单来讲，AI 就是教机器去学人按怎想、按怎做决定。敢是最近你有看到什么特别的 AI 应用，想欲了解？</p></div>
-                <aside><b>Rough English meaning</b><p>Simply put, AI teaches machines how people think and make decisions. Have you seen an AI application you would like to understand?</p></aside>
+                <aside><b>Rough English meaning</b><p>Sure, no problem. Simply put, AI teaches machines how people think and make decisions. Have you seen an AI application you would like to understand?</p></aside>
               </div>
             </article>
 
             <article class="demo">
-              <header><span>07</span><div><h3>Choose an exercise</h3></div></header>
+              <header><span>06</span><div><h3>Recommend an exercise</h3></div></header>
               <div class="turn">
                 <p class="tag">Model input · Hokkien audio</p>
                 <audio controls preload="metadata" src="./assets/showcase/09/input.wav"></audio>
-                <aside><b>What is said, in English</b><p>“What is a good exercise to do?”</p></aside>
+                <aside><b>What is said, in English</b><p>“I want to exercise. What exercise do you think is good to do?”</p></aside>
               </div>
               <div class="turn output">
                 <p class="tag">Myna-Hokkien output · audio + transcript</p>
                 <audio controls preload="metadata" src="./assets/showcase/09/native.wav"></audio>
                 <div class="model-text"><b>Output transcript</b><p lang="nan">好啊，运动真重要。你是想欲做轻松的，抑是想欲流汗的？</p></div>
-                <aside><b>Rough English meaning</b><p>Exercise is important. Would you prefer something relaxing, or something that makes you sweat?</p></aside>
+                <aside><b>Rough English meaning</b><p>Yes. Exercise is important—would you prefer something light, or something that makes you sweat?</p></aside>
               </div>
             </article>
 
             <article class="demo">
-              <header><span>08</span><div><h3>A cheaper haircut</h3></div></header>
+              <header><span>07</span><div><h3>Recommend a hair salon</h3></div></header>
               <div class="turn">
                 <p class="tag">Model input · Hokkien audio</p>
                 <audio controls preload="metadata" src="./assets/showcase/11/input.wav"></audio>
-                <aside><b>What is said, in English</b><p>“Where nearby can I get a cheaper haircut?”</p></aside>
+                <aside><b>What is said, in English</b><p>“I want to get a haircut. Can you recommend a hair salon nearby that is cheaper?”</p></aside>
               </div>
               <div class="turn output">
                 <p class="tag">Myna-Hokkien output · audio + transcript</p>
@@ -265,37 +249,37 @@
 
                 <div class="demo-grid">
             <article class="demo">
-              <header><span>09</span><div><h3>A funny story</h3></div></header>
+              <header><span>08</span><div><h3>A funny story</h3></div></header>
               <div class="turn">
                 <p class="tag">Model input · Hokkien audio</p>
                 <audio controls preload="metadata" src="./assets/showcase/08/input.wav"></audio>
-                <aside><b>What is said, in English</b><p>“Tell me a funny story.”</p></aside>
+                <aside><b>What is said, in English</b><p>“Can you tell me a funny story?”</p></aside>
               </div>
               <div class="turn output">
                 <p class="tag">Myna-Hokkien output · audio + transcript</p>
                 <audio controls preload="metadata" src="./assets/showcase/08/native.wav"></audio>
                 <div class="model-text"><b>Output transcript</b><p lang="nan">好啊，我讲一个关于阿公的予你听。有一日阿公去巴刹，买了一尾大鱼，结果转去厝内，鱼不见去矣！</p></div>
-                <aside><b>Rough English meaning</b><p>A grandfather buys a large fish at the market, but it is gone when he gets home.</p></aside>
+                <aside><b>Rough English meaning</b><p>Sure, I'll tell you one about a grandfather. There was a day a grandfather went to the market to buy a large fish. But when he reached home, the fish disappeared!</p></aside>
               </div>
             </article>
 
             <article class="demo">
-              <header><span>10</span><div><h3>Tell me a joke</h3></div></header>
+              <header><span>09</span><div><h3>Tell me a joke</h3></div></header>
               <div class="turn">
                 <p class="tag">Model input · Hokkien audio</p>
                 <audio controls preload="metadata" src="./assets/showcase/10/input.wav"></audio>
-                <aside><b>What is said, in English</b><p>“Today is very boring. Tell me a joke.”</p></aside>
+                <aside><b>What is said, in English</b><p>“Today was really boring. Can you tell me a joke?”</p></aside>
               </div>
               <div class="turn output">
                 <p class="tag">Myna-Hokkien output · audio + transcript</p>
                 <audio controls preload="metadata" src="./assets/showcase/10/native.wav"></audio>
                 <div class="model-text"><b>Output transcript</b><p lang="nan">好啊，我讲一个。为什么猪头爱去洗身？因为伊想欲变聪明，结果洗到变“猪油”！</p></div>
-                <aside><b>Rough English meaning</b><p>Why does a pig like to bathe? It wants to become clever, but ends up becoming “lard” instead.</p></aside>
+                <aside><b>Rough English meaning</b><p>Sure, I'll tell you one. Why does the pig like to shower? It wanted to become clever, but it became pork lard instead.</p></aside>
               </div>
             </article>
 
             <article class="demo">
-              <header><span>11</span><div><h3>Today's weather</h3></div></header>
+              <header><span>10</span><div><h3>Today's weather</h3></div></header>
               <div class="turn">
                 <p class="tag">Model input · English text</p>
                 <p class="text-input">How is the weather today?</p>
@@ -310,7 +294,7 @@
             </article>
 
             <article class="demo">
-              <header><span>12</span><div><h3>Feeling low</h3></div></header>
+              <header><span>11</span><div><h3>Feeling low</h3></div></header>
               <div class="turn">
                 <p class="tag">Model input · Chinese text</p>
                 <p class="text-input" lang="zh-Hans">我今天心情有点不好。</p>
@@ -328,13 +312,6 @@
             </section>
           </div>
 
-          <p class="method-note">
-            These are selected qualitative examples, not a benchmark or evidence of broad performance.
-            Written input descriptions and rough English meanings are reader annotations. The other
-            model clips are provided without a score or ranking. Output transcripts follow the
-            paired release records. The nine newer examples use the explicitly selected prompt
-            variant for each release record.
-          </p>
         </div>
       </section>
 

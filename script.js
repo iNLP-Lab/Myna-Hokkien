@@ -5,8 +5,10 @@ const comparisonModels = [
   ["glmvoice", "GLM-Voice"],
 ];
 
-document.querySelectorAll(".demo[data-comparison]").forEach((demo, index) => {
-  const sampleId = String(index + 1).padStart(2, "0");
+document.querySelectorAll(".demo[data-comparison]").forEach((demo) => {
+  const exampleId = demo.querySelector("header > span")?.textContent.trim();
+  const sourceId = demo.dataset.sourceId;
+  if (!exampleId || !sourceId) return;
   const output = demo.querySelector(".turn.output");
   if (!output) return;
 
@@ -20,7 +22,7 @@ document.querySelectorAll(".demo[data-comparison]").forEach((demo, index) => {
   summary.appendChild(count);
 
   const table = document.createElement("table");
-  table.setAttribute("aria-label", `Other model outputs for example ${sampleId}`);
+  table.setAttribute("aria-label", `Other model outputs for example ${exampleId}`);
   const body = document.createElement("tbody");
 
   comparisonModels.forEach(([fileName, label]) => {
@@ -32,8 +34,8 @@ document.querySelectorAll(".demo[data-comparison]").forEach((demo, index) => {
     const audio = document.createElement("audio");
     audio.controls = true;
     audio.preload = "none";
-    audio.src = `./assets/showcase/${sampleId}/${fileName}.wav`;
-    audio.setAttribute("aria-label", `${label} output for example ${sampleId}`);
+    audio.src = `./assets/showcase/${sourceId}/${fileName}.wav`;
+    audio.setAttribute("aria-label", `${label} output for example ${exampleId}`);
     cell.appendChild(audio);
     row.append(heading, cell);
     body.appendChild(row);
