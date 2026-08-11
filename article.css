@@ -91,6 +91,7 @@ h1 em { font-weight: 400; }
 .demo-subgroup-head h4 { margin: 0; color: var(--accent-deep); font: 500 .76rem/1.5 var(--mono); letter-spacing: .07em; text-transform: uppercase; }
 .demo-subgroup-head h4::after { margin-left: 7px; color: var(--quiet); content: "—"; }
 .demo-subgroup-head p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.45; }
+.demo-grid + .demo-subgroup-head { margin-top: 24px; }
 .demo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .demo { display: flex; overflow: hidden; flex-direction: column; border: 1px solid var(--line); border-radius: 3px; transition: border-color .18s ease, transform .18s ease; }
 .demo:hover { border-color: #c7c2b6; transform: translateY(-1px); }
