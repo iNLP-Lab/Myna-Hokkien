@@ -32,7 +32,7 @@ hr { width: min(940px, calc(100% - 56px)); margin: 0 auto; border: 0; border-top
 .masthead { padding: 46px 0 36px; }
 .lab { display: flex; gap: 10px; align-items: center; margin-bottom: 20px; color: var(--muted); font: .9rem/1.5 var(--mono); }
 .lab .lab-mark { width: 10px; height: 10px; flex: none; border-radius: 50%; background: var(--accent); }
-.lab a { color: var(--ink); font-weight: 500; text-decoration-thickness: 1px; }
+.lab a { color: var(--ink); font-size: 1.12rem; font-weight: 600; line-height: 1; text-decoration-thickness: 1px; }
 h1 { margin-bottom: 8px; font-size: clamp(2.45rem, 6vw, 3.55rem); letter-spacing: -.035em; }
 h1 em { font-weight: 400; }
 .lede { margin-bottom: 22px; font: 1.16rem/1.5 var(--serif); }
