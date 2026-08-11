@@ -18,23 +18,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&family=Noto+Serif+TC:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./article.css?v=showcase-groups-20260811" />
+    <link rel="stylesheet" href="./article.css?v=balanced-signal-20260811" />
     <script src="./script.js?v=research-details-20260810b" defer></script>
   </head>
   <body>
     <header class="masthead" id="top">
       <div class="wrap">
-        <p class="lab"><span aria-hidden="true"></span>iNLP Lab · Singapore University of Technology and Design</p>
         <h1>Myna-<em>Hokkien</em></h1>
+        <p class="lab">
+          <span class="lab-mark" aria-hidden="true"></span>
+          <span class="lab-copy"><a href="https://isakzhang.github.io/group.html" target="_blank" rel="noreferrer">iNLP Lab</a> · Singapore University of Technology and Design</span>
+        </p>
         <p class="lede">
           An open research release for spoken question answering in Singapore Hokkien.
           Give it speech or text; it produces a spoken Hokkien response.
         </p>
         <div class="actions">
-          <a class="button primary" href="https://huggingface.co/iNLP-Lab/MynaHokkien" target="_blank" rel="noreferrer">Get the model ↗</a>
+          <a class="button primary" href="https://huggingface.co/iNLP-Lab/Myna-Hokkien" target="_blank" rel="noreferrer">Get the model ↗</a>
           <a class="button" href="#listen">Listen to examples ↓</a>
           <a class="button" href="#run">Run it</a>
         </div>
@@ -59,9 +62,10 @@
           <h2 id="about-title">Hokkien remains under-supported in speech AI.</h2>
           <p>
             Hokkien is spoken across Asia and carries family life, humour, and everyday knowledge
-            in Singapore. Yet it remains largely absent from mainstream speech interfaces.
-            Myna-Hokkien is one open research attempt to address that gap.
+            in Singapore. Yet it remains largely absent from mainstream speech AI models.
+            Myna-Hokkien is one open research project addressing that gap.
           </p>
+          <p class="probe-intro">The example below shows how Myna-Hokkien and four general-purpose speech models respond to the same spoken Hokkien request.</p>
 
           <div class="project-probe" aria-labelledby="probe-title">
             <div class="probe-prompt">
@@ -69,7 +73,7 @@
                 <p class="eyebrow">One illustrative prompt</p>
                 <h3 id="probe-title">“How do I pronounce ‘happy birthday’?”</h3>
               </div>
-              <audio controls preload="none" src="./assets/showcase/04/input.wav" aria-label="Hokkien birthday pronunciation request"></audio>
+              <audio controls preload="metadata" src="./assets/showcase/04/input.wav" aria-label="Spoken Hokkien birthday pronunciation request"></audio>
             </div>
             <div class="probe-grid">
               <div class="probe-cell is-myna"><strong>Myna-Hokkien</strong><audio controls preload="none" src="./assets/showcase/04/native.wav"></audio><p>Teaches the user patiently how the word is pronounced in fluent Singapore Hokkien.</p></div>
@@ -323,12 +327,12 @@
           <h2 id="how-title">One native model, speech to speech.</h2>
           <dl class="facts">
             <div><dt>Base architecture</dt><dd>Qwen3-Omni-30B-A3B-Instruct</dd></div>
-            <div><dt>Weights</dt><dd>Approximately 70.5 GB · BF16 / FP16</dd></div>
+            <div><dt>Weights</dt><dd>35B total parameters · 3B active</dd></div>
             <div><dt>Language</dt><dd>Singapore Hokkien / Minnan · <code>nan</code></dd></div>
             <div><dt>Voice</dt><dd><code>Ethan</code> · single voice in this release</dd></div>
             <div><dt>Input / output</dt><dd>16 kHz mono audio or text in; text and 24 kHz mono audio out</dd></div>
             <div><dt>Primary task</dt><dd>Spoken question answering</dd></div>
-            <div><dt>License</dt><dd></dd></div>
+            <div><dt>License</dt><dd><a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noreferrer">Apache 2.0 ↗</a></dd></div>
           </dl>
         </div>
       </section>
@@ -339,17 +343,17 @@
         <div class="wrap narrow">
           <p class="eyebrow">Run it</p>
           <h2 id="run-title">Install, then ask a spoken question.</h2>
-          <p>Weights, runtime, and full documentation are on <a href="https://huggingface.co/iNLP-Lab/MynaHokkien" target="_blank" rel="noreferrer">Hugging Face ↗</a>.</p>
+          <p>Weights, runtime, and full documentation are on <a href="https://huggingface.co/iNLP-Lab/Myna-Hokkien" target="_blank" rel="noreferrer">Hugging Face ↗</a>.</p>
           <pre><code><span class="code-comment"># Install</span>
 pip install --upgrade huggingface_hub
-MODEL_DIR="$(hf download iNLP-Lab/MynaHokkien --quiet)"
+MODEL_DIR="$(hf download iNLP-Lab/Myna-Hokkien --quiet)"
 pip install "$MODEL_DIR"</code></pre>
           <pre><code>import torch
 import soundfile as sf
 from mynahokkien import MynaHokkien
 
 model = MynaHokkien.from_pretrained(
-    "iNLP-Lab/MynaHokkien",
+    "iNLP-Lab/Myna-Hokkien",
     device_map="cuda:0",
     dtype=torch.float16,
 )
@@ -372,11 +376,17 @@ sf.write("output.wav", output.audio, output.sampling_rate)</code></pre>
       <section class="section" id="next" aria-labelledby="next-title">
         <div class="wrap narrow">
           <p class="eyebrow">Next steps</p>
-          <h2 id="next-title">Improve the model, then evaluate it more broadly.</h2>
+          <h2 id="next-title">What’s Next?</h2>
+          <aside class="future-focus" aria-labelledby="future-focus-title">
+            <p class="eyebrow">Expanding language coverage</p>
+            <div>
+              <h3 id="future-focus-title">Broader Chinese dialect coverage</h3>
+              <p>Extend future releases to support more Chinese dialect varieties.</p>
+            </div>
+          </aside>
           <ul class="plain-list">
             <li><strong>Lighter checkpoints</strong> to support experiments on more modest hardware.</li>
             <li><strong>Broader tasks</strong> beyond the current spoken question-answering focus.</li>
-            <li><strong>Broader Chinese dialect coverage</strong> to include more Chinese dialect varieties in the future.</li>
             <li><strong>Community evaluation</strong> with Hokkien speakers across different ages and backgrounds.</li>
             <li><strong>More expressive data</strong> to study speaking style and emotional range.</li>
           </ul>
@@ -395,9 +405,9 @@ sf.write("output.wav", output.audio, output.sampling_rate)</code></pre>
           <h2 id="citation-title">Cite this release.</h2>
           <pre><code>@misc{myna-hokkien-2026,
   title  = {Myna-Hokkien: An Open-Source End-to-End Hokkien Spoken Dialogue Model},
-  author = {Matt, Ryner, Wenxuan},
+  author = {Matthew Christopher Pohadi and Ryner Tan and Wenxuan Zhang},
   year   = {2026},
-  howpublished = {\url{https://huggingface.co/iNLP-Lab/MynaHokkien}}
+  howpublished = {\url{https://huggingface.co/iNLP-Lab/Myna-Hokkien}}
 }</code></pre>
         </div>
       </section>
@@ -405,12 +415,11 @@ sf.write("output.wav", output.audio, output.sampling_rate)</code></pre>
 
     <footer>
       <div class="wrap footer-row">
-        <div><strong>Myna-Hokkien</strong><p>Singapore Hokkien speech research · iNLP Lab, SUTD</p></div>
+        <div><strong>Myna-Hokkien</strong><p>Singapore Hokkien speech research · <a href="https://isakzhang.github.io/group.html" target="_blank" rel="noreferrer">iNLP Lab</a>, SUTD</p></div>
         <nav aria-label="Footer navigation">
-          <a href="https://huggingface.co/iNLP-Lab/MynaHokkien" target="_blank" rel="noreferrer">Hugging Face ↗</a>
+          <a href="https://huggingface.co/iNLP-Lab/Myna-Hokkien" target="_blank" rel="noreferrer">Hugging Face ↗</a>
           <a href="#listen">Listen again</a>
           <a href="#run">Run it</a>
-          <a href="#citation">Citation</a>
           <a href="#top">Back to top ↑</a>
         </nav>
         <p class="disclaimer">Research prototype. Outputs may be incomplete, inaccurate, or inconsistent. © <span data-year>2026</span> SUTD iNLP Lab.</p>
